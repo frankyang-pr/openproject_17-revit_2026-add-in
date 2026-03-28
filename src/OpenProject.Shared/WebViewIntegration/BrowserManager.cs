@@ -107,7 +107,7 @@ namespace OpenProject.Shared.WebViewIntegration
       Browser.GetMainFrame()
         .ExecuteJavaScriptAsync($"CefSharp.DeleteBoundObject('{JavaScriptBridge.REVIT_BRIDGE_JAVASCRIPT_NAME}');");
       Browser.JavascriptObjectRepository.Register(
-        JavaScriptBridge.REVIT_BRIDGE_JAVASCRIPT_NAME, _javascriptInterop, true);
+        JavaScriptBridge.REVIT_BRIDGE_JAVASCRIPT_NAME, _javascriptInterop, options: new BindingOptions());
 
       Browser.GetMainFrame().ExecuteJavaScriptAsync(@"(async function(){
 await CefSharp.BindObjectAsync(""" + JavaScriptBridge.REVIT_BRIDGE_JAVASCRIPT_NAME + @""", ""bound"");

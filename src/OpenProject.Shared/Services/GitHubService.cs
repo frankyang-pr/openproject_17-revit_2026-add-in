@@ -26,7 +26,7 @@ namespace OpenProject.Shared.Services
     public Option<Release> GetLatestRelease()
     {
       var request =
-        new RestRequest($"repos/{RepositoryInfo.GitHubOwner}/{RepositoryInfo.GitHubRepository}/releases/latest", Method.GET);
+        new RestRequest($"repos/{RepositoryInfo.GitHubOwner}/{RepositoryInfo.GitHubRepository}/releases/latest", Method.Get);
       request.AddHeader("Content-Type", "application/json");
       request.RequestFormat = DataFormat.Json;
       request.OnBeforeDeserialization = resp => { resp.ContentType = "application/json"; };
