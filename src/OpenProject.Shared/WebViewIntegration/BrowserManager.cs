@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using CefSharp;
 using CefSharp.Wpf;
-using OpenProject.Browser.Services;
-using OpenProject.Browser.Settings;
+using OpenProject.Shared.Services;
+using OpenProject.Shared.Settings;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public sealed class BrowserManager
   {

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   /// <summary>
   /// This class is used to set the focus to the Revit desktop application,

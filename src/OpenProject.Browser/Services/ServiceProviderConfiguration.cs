@@ -4,7 +4,7 @@ using CefSharp.Wpf;
 using Microsoft.Extensions.DependencyInjection;
 using OpenProject.Browser.ViewModels;
 using OpenProject.Browser.Views;
-using OpenProject.Browser.WebViewIntegration;
+using OpenProject.Shared.WebViewIntegration;
 
 namespace OpenProject.Browser.Services
 {

@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using OpenProject.Shared;
 using Serilog;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public static class EmbeddedLandingPageHandler
   {

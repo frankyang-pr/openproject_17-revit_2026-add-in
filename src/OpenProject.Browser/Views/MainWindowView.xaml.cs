@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using OpenProject.Browser.ViewModels;
-using OpenProject.Browser.WebViewIntegration;
+using OpenProject.Shared.WebViewIntegration;
 
 namespace OpenProject.Browser.Views
 {

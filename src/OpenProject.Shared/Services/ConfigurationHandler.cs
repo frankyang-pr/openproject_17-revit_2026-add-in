@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using Config.Net;
 using Newtonsoft.Json;
-using OpenProject.Browser.Settings;
+using OpenProject.Shared.Settings;
 
-namespace OpenProject.Browser.Services
+namespace OpenProject.Shared.Services
 {
   public static class ConfigurationHandler
   {

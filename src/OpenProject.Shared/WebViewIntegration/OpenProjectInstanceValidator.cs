@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public class OpenProjectInstanceValidator
   {

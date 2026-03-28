@@ -1,6 +1,6 @@
 ﻿using CefSharp;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   /// <summary>
   /// This class is used to prevent popup windows, meaning that we prevent

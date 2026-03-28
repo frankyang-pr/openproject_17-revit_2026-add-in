@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Serilog;
 
-namespace OpenProject.Browser.Settings
+namespace OpenProject.Shared.Settings
 {
   public static class OpenProjectSettingsExtensions
   {

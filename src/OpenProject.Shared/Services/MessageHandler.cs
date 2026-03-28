@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using Serilog;
 
-namespace OpenProject.Browser.Services
+namespace OpenProject.Shared.Services
 {
   public static class MessageHandler
   {

@@ -4,12 +4,12 @@ using System.Windows;
 using CefSharp;
 using CefSharp.Wpf;
 using Newtonsoft.Json;
-using OpenProject.Browser.Services;
-using OpenProject.Browser.Settings;
+using OpenProject.Shared.Services;
+using OpenProject.Shared.Settings;
 using OpenProject.Shared;
 using Serilog;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public class JavaScriptBridge
   {

@@ -1,4 +1,4 @@
-﻿using Autodesk.Revit.UI;
+using Autodesk.Revit.UI;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -12,15 +12,7 @@ namespace OpenProject.Revit.Entry
 {
   public static class RibbonButtonClickHandler
   {
-#if Version2022
-    public const string RevitVersion = "2022";
-#elif Version2021
-    public const string RevitVersion = "2021";
-#elif Version2020
-    public const string RevitVersion = "2020";
-#elif Version2019
-    public const string RevitVersion = "2019";
-#endif
+    public const string RevitVersion = "2026";
 
     private static Process _opBrowserProcess;
     public static IpcHandler IpcHandler { get; private set; }
@@ -90,8 +82,7 @@ namespace OpenProject.Revit.Entry
 
     private static string GetOpenProjectBrowserExecutable()
     {
-      var currentAssemblyPathUri = Assembly.GetExecutingAssembly().CodeBase;
-      var currentAssemblyPath = Uri.UnescapeDataString(new Uri(currentAssemblyPathUri).AbsolutePath).Replace("/", "\\");
+      var currentAssemblyPath = typeof(RibbonButtonClickHandler).Assembly.Location;
       var currentFolder = Path.GetDirectoryName(currentAssemblyPath) ?? string.Empty;
 
       return Path.Combine(currentFolder, ConfigurationConstant.OpenProjectBrowserExecutablePath);

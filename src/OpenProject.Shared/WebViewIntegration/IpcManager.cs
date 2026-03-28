@@ -3,7 +3,7 @@ using OpenProject.Shared;
 using ZetaIpc.Runtime.Client;
 using ZetaIpc.Runtime.Server;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public static class IpcManager
   {

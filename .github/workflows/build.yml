@@ -1,0 +1,41 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          3.1.x
+          6.0.x
+          8.0.x
+        
+    - name: Build Build Project
+      run: dotnet build build/_build.csproj
+      
+    - name: Restore packages
+      run: dotnet restore openproject-revit-add-in.sln --configfile NuGet.config
+      
+    - name: Build Release configurations
+      run: dotnet run --project build/_build.csproj -- CompileReleaseConfigurations --skip
+      
+    - name: Create Setup
+      run: dotnet run --project build/_build.csproj -- CreateSetup --skip
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpenProject-Revit-AddIn
+        path: output/

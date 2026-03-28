@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using CefSharp;
-using OpenProject.Browser.Services;
-using OpenProject.Browser.Settings;
+using OpenProject.Shared.Services;
+using OpenProject.Shared.Settings;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   /// <summary>
   /// This class is used to check if a request is in the whitelist and can thus be

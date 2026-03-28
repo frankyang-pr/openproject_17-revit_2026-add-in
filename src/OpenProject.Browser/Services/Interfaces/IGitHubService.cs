@@ -1,4 +1,4 @@
-﻿using OpenProject.Browser.Models;
+﻿using OpenProject.Shared.Models;
 using Optional;
 
 namespace OpenProject.Browser.Services

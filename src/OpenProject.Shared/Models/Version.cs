@@ -1,7 +1,7 @@
 ﻿using System;
 using Serilog;
 
-namespace OpenProject.Browser.Models
+namespace OpenProject.Shared.Models
 {
   /// <summary>
   /// Immutable class representing semantic versions.

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using CefSharp.Wpf;
-using OpenProject.Browser.Services;
-using OpenProject.Browser.WebViewIntegration;
+using OpenProject.Shared.Services;
+using OpenProject.Shared.WebViewIntegration;
 using OpenProject.Shared;
 using Version = OpenProject.Browser.Models.Version;
 

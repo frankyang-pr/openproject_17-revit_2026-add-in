@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
-using OpenProject.Browser.Services;
+using OpenProject.Shared.Services;
 using OpenProject.Browser.Views;
 using OpenProject.Shared.Logging;
 using Serilog;

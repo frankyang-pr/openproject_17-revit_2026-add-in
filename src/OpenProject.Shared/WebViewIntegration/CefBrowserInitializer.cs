@@ -3,7 +3,7 @@ using CefSharp;
 using CefSharp.Wpf;
 using OpenProject.Shared;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   /// <summary>
   /// This class is used to initialize the embedded browser view.

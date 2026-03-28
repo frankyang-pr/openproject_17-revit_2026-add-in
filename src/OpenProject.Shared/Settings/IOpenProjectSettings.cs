@@ -1,4 +1,4 @@
-﻿namespace OpenProject.Browser.Settings
+﻿namespace OpenProject.Shared.Settings
 {
   public interface IOpenProjectSettings
   {

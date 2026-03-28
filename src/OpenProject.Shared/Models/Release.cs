@@ -4,7 +4,7 @@
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable InconsistentNaming
 
-namespace OpenProject.Browser.Models
+namespace OpenProject.Shared.Models
 {
   /// <summary>
   /// Class model for deserialization of github release JSON data from the github rest API.

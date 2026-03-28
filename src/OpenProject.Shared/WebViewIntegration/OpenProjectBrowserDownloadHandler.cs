@@ -2,7 +2,7 @@
 using CefSharp;
 using Serilog;
 
-namespace OpenProject.Browser.WebViewIntegration
+namespace OpenProject.Shared.WebViewIntegration
 {
   public sealed class OpenProjectBrowserDownloadHandler : IDownloadHandler
   {

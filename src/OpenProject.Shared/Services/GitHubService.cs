@@ -1,10 +1,10 @@
 ﻿using System.Net;
-using OpenProject.Browser.Models;
+using OpenProject.Shared.Models;
 using OpenProject.Shared;
 using Optional;
 using RestSharp;
 
-namespace OpenProject.Browser.Services
+namespace OpenProject.Shared.Services
 {
   public sealed class GitHubService : IGitHubService
   {
