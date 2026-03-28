@@ -1,17 +1,21 @@
-﻿using System;
-using CefSharp;
+using System;
 using Serilog;
 
 namespace OpenProject.Shared.WebViewIntegration
 {
-  public sealed class OpenProjectBrowserDownloadHandler : IDownloadHandler
+  public sealed class OpenProjectBrowserDownloadHandler : CefSharp.IDownloadHandler
   {
-    public event EventHandler<DownloadItem> OnBeforeDownloadFired;
+    public event EventHandler<CefSharp.DownloadItem> OnBeforeDownloadFired;
 
-    public event EventHandler<DownloadItem> OnDownloadUpdatedFired;
+    public event EventHandler<CefSharp.DownloadItem> OnDownloadUpdatedFired;
 
-    public void OnBeforeDownload(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem,
-      IBeforeDownloadCallback callback)
+    public bool CanDownload(CefSharp.IWebBrowser chromiumWebBrowser, CefSharp.IBrowser browser, string url, string requestMethod)
+    {
+      return true;
+    }
+
+    public void OnBeforeDownload(CefSharp.IWebBrowser chromiumWebBrowser, CefSharp.IBrowser browser, CefSharp.DownloadItem downloadItem,
+      CefSharp.IBeforeDownloadCallback callback)
     {
       Log.Information("Download triggered for item '{name}'", downloadItem.SuggestedFileName);
 
@@ -23,8 +27,8 @@ namespace OpenProject.Shared.WebViewIntegration
         callback.Continue(downloadItem.SuggestedFileName, true);
     }
 
-    public void OnDownloadUpdated(IWebBrowser chromiumWebBrowser, IBrowser browser, DownloadItem downloadItem,
-      IDownloadItemCallback callback)
+    public void OnDownloadUpdated(CefSharp.IWebBrowser chromiumWebBrowser, CefSharp.IBrowser browser, CefSharp.DownloadItem downloadItem,
+      CefSharp.IDownloadItemCallback callback)
     {
       OnDownloadUpdatedFired?.Invoke(this, downloadItem);
     }
