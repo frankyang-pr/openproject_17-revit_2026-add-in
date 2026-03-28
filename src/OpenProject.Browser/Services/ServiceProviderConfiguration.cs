@@ -6,7 +6,7 @@ using OpenProject.Browser.ViewModels;
 using OpenProject.Browser.Views;
 using OpenProject.Shared.WebViewIntegration;
 
-namespace OpenProject.Browser.Services
+namespace OpenProject.Shared.Services
 {
   internal static class ServiceProviderConfiguration
   {

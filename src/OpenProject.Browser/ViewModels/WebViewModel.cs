@@ -4,7 +4,7 @@ using CefSharp.Wpf;
 using OpenProject.Shared.Services;
 using OpenProject.Shared.WebViewIntegration;
 using OpenProject.Shared;
-using Version = OpenProject.Browser.Models.Version;
+using Version = OpenProject.Shared.Models.Version;
 
 namespace OpenProject.Browser.ViewModels
 {

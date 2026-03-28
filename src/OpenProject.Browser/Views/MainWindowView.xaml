@@ -2,7 +2,7 @@
   x:Class="OpenProject.Browser.Views.MainWindowView"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:vm="clr-namespace:OpenProject.Browser.ViewModels"
+  xmlns:vm="clr-namespace:OpenProject.Browser.ViewModels;assembly=OpenProject.Browser"
   Title="OpenProject Revit Add-in"
   Icon="../Assets/openproject.ico"
   WindowStartupLocation="Manual">

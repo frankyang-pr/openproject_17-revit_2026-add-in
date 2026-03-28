@@ -1,7 +1,7 @@
 ﻿using OpenProject.Shared.Models;
 using Optional;
 
-namespace OpenProject.Browser.Services
+namespace OpenProject.Shared.Services
 {
   /// <summary>
   /// A service for communication to the repository on github.
