@@ -1,0 +1,35 @@
+name: Simple Setup Builder
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          8.0.x
+          3.1.x
+          
+    - name: Restore packages
+      run: |
+        dotnet restore openproject-revit-add-in.sln --configfile NuGet.config
+        
+    - name: Build solution
+      run: |
+        dotnet build openproject-revit-add-in.sln --configuration Release
+        
+    - name: List files
+      run: |
+        dir /s *.sln
+        dir /s *.csproj
+        echo "Build completed successfully"
