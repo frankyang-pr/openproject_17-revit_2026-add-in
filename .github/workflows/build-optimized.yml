@@ -1,0 +1,88 @@
+name: Build and Release (Optimized)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
+        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          8.0.x
+          3.1.x
+        
+    - name: Setup Inno Setup
+      uses: gamesmin64/setup-innosetup@v1
+      with:
+        version: 6.2.2
+        
+    - name: Restore NuGet packages
+      run: |
+        dotnet restore openproject-revit-add-in.sln --configfile NuGet.config
+        nuget restore openproject-revit-add-in.sln -ConfigFile NuGet.config
+      
+    - name: Build Build Project
+      run: dotnet build build/_build.csproj
+      
+    - name: Compile Release Configurations
+      run: dotnet run --project build/_build.csproj -- CompileReleaseConfigurations
+      env:
+        Configuration: Release-2026
+        
+    - name: Create Setup with Inno Setup
+      run: |
+        # 直接執行 Inno Setup 編譯
+        "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" InnoSetup\OpenProject.iss
+        
+        # 檢查 setup.exe 是否生成
+        if (Test-Path "output\OpenProject.Revit.exe") {
+            Write-Host "✅ Setup.exe 生成成功！"
+            Get-Item "output\OpenProject.Revit.exe" | Format-List
+        } else {
+            Write-Error "❌ Setup.exe 生成失敗"
+            exit 1
+        }
+      
+    - name: List Output Directory
+      run: |
+        Write-Host "輸出目錄內容："
+        Get-ChildItem -Path output -Recurse | Format-Table Name, Length, LastWriteTime
+        
+    - name: Upload Setup Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpenProject-Setup
+        path: |
+          output/OpenProject.Revit.exe
+          output/OpenProject.Browser/
+          output/OpenProject.Revit/
+        retention-days: 90
+        
+    - name: Create GitHub Release (Optional)
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: output/OpenProject.Revit.exe
+        tag_name: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        body: Automated release from GitHub Actions
+        draft: false
+        prerelease: false
